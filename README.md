@@ -7,11 +7,11 @@ Minor changes have been done on the common library under 'src/common'.
 
 Building requirements:
 
-*Item CMake version 2.6 or above (https://cmake.org/)
-*Item A C++ compiler that supports the C++14 standard, eg. GCC (https://gcc.gnu.org/) or Clang (https://clang.llvm.org/)
-*Item Eigen C++ library, version 3.3 or above (http://eigen.tuxfamily.org/)
-*Item The following Boost C++ libraries (http://www.boost.org/): filesystem, program options, timer, chrono
-*Item GetPot(http://getpot.sourceforge.net/)
+* Item CMake version 2.6 or above (https://cmake.org/)
+* Item A C++ compiler that supports the C++14 standard, eg. GCC (https://gcc.gnu.org/) or Clang (https://clang.llvm.org/)
+* Item Eigen C++ library, version 3.3 or above (http://eigen.tuxfamily.org/)
+* Item The following Boost C++ libraries (http://www.boost.org/): filesystem, program options, timer, chrono
+* Item GetPot(http://getpot.sourceforge.net/)
 
 Building instructions: 
 
