@@ -1,0 +1,17 @@
+BC: M0
+Solution: 1
+Diffusion: 1
+Mesh: voro-2
+FaceDegree: 1
+CellDegree: 1
+Using threads: true
+AssemblyTime: 0.930915
+Solving time: 0
+L2error: 0.0661217
+H1error: 0.148782
+EnergyError: 0.152752
+MeshSize: 0.826611
+NbCells: 27
+NbFaces: 162
+NbFaceDOFs: 486
+MeshReg: 107.874

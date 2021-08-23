@@ -1,0 +1,3 @@
+data file: /cygdrive/c/Users/Aurelio/Desktop/HArDCore3D/runs/hho-diffusion/data.sh
+k=1, l=1
+Mesh 1: RF:Voro-small-0/RF_fmt/voro-2

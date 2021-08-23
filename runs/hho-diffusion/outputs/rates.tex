@@ -1,0 +1,141 @@
+\documentclass{article}
+
+\usepackage{amsfonts,latexsym,graphicx}
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{23cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\topmargin}{-1cm}
+\parindent=0pt
+
+\usepackage{pgfplots,pgfplotstable}
+\usetikzlibrary{calc,external}
+
+\newcommand{\logLogSlopeTriangle}[5]
+{
+    \pgfplotsextra
+    {
+        \pgfkeysgetvalue{/pgfplots/xmin}{\xmin}
+        \pgfkeysgetvalue{/pgfplots/xmax}{\xmax}
+        \pgfkeysgetvalue{/pgfplots/ymin}{\ymin}
+        \pgfkeysgetvalue{/pgfplots/ymax}{\ymax}
+
+        % Calculate auxilliary quantities, in relative sense.
+        \pgfmathsetmacro{\xArel}{#1}
+        \pgfmathsetmacro{\yArel}{#3}
+        \pgfmathsetmacro{\xBrel}{#1-#2}
+        \pgfmathsetmacro{\yBrel}{\yArel}
+        \pgfmathsetmacro{\xCrel}{\xArel}
+
+        \pgfmathsetmacro{\lnxB}{\xmin*(1-(#1-#2))+\xmax*(#1-#2)} % in [xmin,xmax].
+        \pgfmathsetmacro{\lnxA}{\xmin*(1-#1)+\xmax*#1} % in [xmin,xmax].
+        \pgfmathsetmacro{\lnyA}{\ymin*(1-#3)+\ymax*#3} % in [ymin,ymax].
+        \pgfmathsetmacro{\lnyC}{\lnyA+#4*(\lnxA-\lnxB)}
+        \pgfmathsetmacro{\yCrel}{\lnyC-\ymin)/(\ymax-\ymin)}
+
+        % Define coordinates for \draw. MIND THE 'rel axis cs' as opposed to the 'axis cs'.
+        \coordinate (A) at (rel axis cs:\xArel,\yArel);
+        \coordinate (B) at (rel axis cs:\xBrel,\yBrel);
+        \coordinate (C) at (rel axis cs:\xCrel,\yCrel);
+
+        % Draw slope triangle.
+        \draw[#5]   (A)-- node[pos=0.5,anchor=north] {\scriptsize{1}}
+                    (B)--
+                    (C)-- node[pos=0.,anchor=west] {\scriptsize{#4}} %% node[pos=0.5,anchor=west] {#4}
+                    cycle;
+    }
+}
+
+\begin{document}
+
+\begin{figure}\centering
+  \ref{legend}
+  \vspace{0.5cm}\\
+    \begin{tikzpicture}
+      \begin{loglogaxis}[ legend columns=-1, legend to name=legend ]
+        \addplot table[x=meshsize,y=EnergyError] {data_rates.dat};
+        \addplot table[x=meshsize,y=H1error] {data_rates.dat};
+        \addplot table[x=meshsize,y=L2error] {data_rates.dat};
+        \logLogSlopeTriangle{0.90}{0.4}{0.1}{3}{black};
+        \logLogSlopeTriangle{0.90}{0.4}{0.1}{2}{black};
+        \legend{Energy,H1,L2};
+      \end{loglogaxis}
+    \end{tikzpicture}
+  \caption{Error vs. $h$}
+\end{figure}
+
+Degrees: (face) $k=1$, (cell) $l=1$
+
+Boundary conditions: bc=M0
+
+Test case: tcsol=1, tcdiff=1 
+
+
+mesh[1]=\verb!RF:Voro-small-0/RF_fmt/voro-2!
+
+
+mesh[2]=\verb!RF:Voro-small-0/RF_fmt/voro-4!
+
+
+mesh[3]=\verb!RF:Voro-small-0/RF_fmt/voro-6!
+
+
+\end{document}
+Test 1:
+
+BC: M0
+Solution: 1
+Diffusion: 1
+Mesh: voro-2
+FaceDegree: 1
+CellDegree: 1
+Using threads: true
+AssemblyTime: 0.930915
+Solving time: 0
+L2error: 0.0661217
+H1error: 0.148782
+EnergyError: 0.152752
+MeshSize: 0.826611
+NbCells: 27
+NbFaces: 162
+NbFaceDOFs: 486
+MeshReg: 107.874
+Test 2:
+
+BC: M0
+Solution: 1
+Diffusion: 1
+Mesh: voro-4
+FaceDegree: 1
+CellDegree: 1
+Using threads: true
+AssemblyTime: 5.09708
+Solving time: 0.063
+L2error: 0.0126825
+H1error: 0.0512701
+EnergyError: 0.0628301
+MeshSize: 0.454124
+NbCells: 125
+NbFaces: 800
+NbFaceDOFs: 2400
+MeshReg: 377.925
+Test 3:
+
+BC: M0
+Solution: 1
+Diffusion: 1
+Mesh: voro-6
+FaceDegree: 1
+CellDegree: 1
+Using threads: true
+AssemblyTime: 18.6397
+Solving time: 0.187
+L2error: 0.003796
+H1error: 0.023035
+EnergyError: 0.0298001
+MeshSize: 0.305313
+NbCells: 343
+NbFaces: 2351
+NbFaceDOFs: 7053
+MeshReg: 1713.2
