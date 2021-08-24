@@ -5,6 +5,8 @@ An extension is provided to apply the HHO method to the equations of magnetostat
 new or partially adapted code to implement the scheme. The material of the added branch resides mostly there.
 The common library utilities are located in 'src'. Only minor changes have been introduced under 'src/common'.
 Under 'Schemes/HHO-magnetostatics' the original version of the implementation can be found, which may be useful for a comparison.   
+'Schemes' also contains implementations of hybrid methods on polytopal meshes. 
+Meshfiles are found under 'meshes'.
 
 Building requirements:
 
@@ -28,7 +30,7 @@ cmake ..
 make spadotto-magnetostatics/magnetostatics-spadotto
 ```
  
-
+After this, the executable 'magnetostatics-spadotto' can be found under 'build/spadotto-magnetostatics' 
 
 The executable 'magnetostatics-spadotto' can be launched specifying several options. You can have a look at 
 'spadotto-magnetostatics/hho-magnetostatics-sum.cpp' to check the default setting.  
