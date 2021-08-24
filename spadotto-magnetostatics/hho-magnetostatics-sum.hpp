@@ -1,3 +1,6 @@
+// Author: Daniele Di Pietro (daniele.di-pietro@umontpellier.fr) (original version in Schemes/HHO-magnetostatics)
+// Partially adapted by Aurelio Spadotto
+
 #ifndef HHO_MAGNETOSTATICS_SUM_HPP
 #define HHO_MAGNETOSTATICS_SUM_HPP
 

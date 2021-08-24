@@ -1,3 +1,6 @@
+// Author: Daniele Di Pietro (daniele.di-pietro@umontpellier.fr) 
+
+
 #ifndef CARTESIANPRODUCTHHOSPACE_HPP
 #define CARTESIANPRODUCTHHOSPACE_HPP
 

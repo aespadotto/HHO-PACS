@@ -1,8 +1,11 @@
+/// Author: Aurelio Spadotto
+/// Header only library to complement basis.hpp (see src/Common/basis.hpp)
 
 #ifndef ADDITIONALBASIS_HH
 #define ADDITIONALBASIS_HH
-
 #include <basis.hpp>
+
+
 
 namespace HArDCore3D {
 

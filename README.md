@@ -1,9 +1,10 @@
 This is an adaptation of the library HArD::Core (https://github.com/jdroniou/HArDCore) for educational purpose. 
 The documentation of the original project can be found at https://jdroniou.github.io/HArDCore3D/
 
-An extension is provided to apply the HHO method to the equations of magnetostatics. The folder 'magnetostatics-spadotto' contains
+An extension is provided to apply the HHO method to the equations of magnetostatics. The directory 'magnetostatics-spadotto' contains
 new or partially adapted code to implement the scheme. The material of the added branch resides mostly there.
-Minor changes have been done on the common library under 'src/common'. 
+The common library utilities are located in 'src'. Only minor changes have been introduced under 'src/common'.
+Under 'Schemes/HHO-magnetostatics' the original version of the implementation can be found, which may be useful for a comparison.   
 
 Building requirements:
 
@@ -15,7 +16,10 @@ Building requirements:
 
 Building instructions: 
 
-For the minimal build it should be enough to follow the usual steps for a CMake project:
+An automatic search of the external libraries is provided. 
+If it fails,  setting the directories manually in CMakeLists.txt where indicated should fix the problem. 
+GetPot's directory has to be set manually in every case.
+For the minimal build it should be enough to execute the following steps:
 
 ```
 mkdir build
@@ -23,10 +27,8 @@ cd build
 cmake ..
 make spadotto-magnetostatics/magnetostatics-spadotto
 ```
+ 
 
-
-
-If the automatic search of the external libraries fails it is recommended to set the directories manually in the CMakeLists.txt. 
 
 The executable 'magnetostatics-spadotto' can be launched specifying several options. You can have a look at 
 'spadotto-magnetostatics/hho-magnetostatics-sum.cpp' to check the default setting.  

@@ -1,6 +1,6 @@
+// Author: Daniele Di Pietro (daniele.di-pietro@umontpellier.fr) 
 #ifndef HHOSPACE_HPP
 #define HHOSPACE_HPP
-
 #include <dofspace.hpp>
 
 namespace HArDCore3D

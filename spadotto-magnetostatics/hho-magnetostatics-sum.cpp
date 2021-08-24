@@ -1,4 +1,5 @@
-// Author: Daniele Di Pietro (daniele.di-pietro@umontpellier.fr)
+// Author: Daniele Di Pietro (daniele.di-pietro@umontpellier.fr) (original version in Schemes/HHO-magnetostatics)
+// Partially adapted by Aurelio Spadotto
 #include <algorithm>
 #include <fstream>
 #include <iomanip>
@@ -21,7 +22,7 @@ using namespace HArDCore3D;
 // Mesh filenames
 //------------------------------------------------------------------------------
 
-const std::string mesh_dir = "/mnt/c/Users/Aurelio/Desktop/Ubuntu/HArDCore3D/meshes/";
+const std::string mesh_dir = "/path/to/HHO-pacs/meshes/";
 std::string default_mesh = mesh_dir + "Cubic-Cells/RF_fmt/gcube_2x2x2";
 std::string default_meshtype = "RF";
 
@@ -54,7 +55,7 @@ int main(int argc, char** argv)
 
 // parse with GetPot
 GetPot cl(argc, argv);
-const std::string mesh_file = cl.follow("/mnt/c/Users/Aurelio/Desktop/HHO-muse/meshes/Cubic-Cells/RF_fmt/gcube_2x2x2", 2, "-m", "--mesh");
+const std::string mesh_file = cl.follow("/path/to/HHO-pacs/meshes/Cubic-Cells/RF_fmt/gcube_2x2x2", 2, "-m", "--mesh");
 const std::string mesh_type = cl.follow ("RF", 2, "-t","--meshtype");
 const size_t K = cl.follow (1, 2, "-k","--degree");
 const bool use_threads = cl.follow (true, 2, "-p", "--pthread");

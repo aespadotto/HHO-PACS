@@ -1,3 +1,6 @@
+// Author: Daniele Di Pietro (daniele.di-pietro@umontpellier.fr) (original version in Schemes/HHO-magnetostatics)
+// Partially adapted by Aurelio Spadotto 
+
 #ifndef XSPACE_SUM_HPP
 #define XSPACE_SUM_HPP
 

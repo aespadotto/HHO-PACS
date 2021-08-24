@@ -1,3 +1,4 @@
+// Author: Daniele Di Pietro (daniele.di-pietro@umontpellier.fr) 
 #include "hhospace.hpp"
 
 using namespace HArDCore3D;

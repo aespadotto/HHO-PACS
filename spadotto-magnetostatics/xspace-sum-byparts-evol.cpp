@@ -1,5 +1,7 @@
-#include "xspace-sum-evol.hpp"
+// Author: Daniele Di Pietro (daniele.di-pietro@umontpellier.fr) (original version in Schemes/HHO-magnetostatics)
+// Partially adapted by Aurelio Spadotto
 
+#include "xspace-sum-evol.hpp"
 #include <parallel_for.hpp>
 #include <polynomialspacedimension.hpp>
 

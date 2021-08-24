@@ -1,13 +1,13 @@
 project(HArD::Core3D)
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
-#------------------------------------------------------------------------------#
-#                             Directories to be set manually
-#------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------------------------------------------#
+#  Directories to be set manually: ENABLE THIS SECTION IF AUTOMATIC LIBRARY SEARCH FAILS (GetPot directory has to be set manually anyway)
+#---------------------------------------------------------------------------------------------------------------------------------------#
 
-SET(GETPOT_INCLUDEDIR ...)
-SET (BOOST_ROOT ...)
-SET(EIGEN_INCLUDEDIR ...)
+#SET(GETPOT_INCLUDEDIR ...)
+#SET(BOOST_ROOT ...)
+SET(EIGEN_INCLUDEDIR ...) # it has to be set manually 
 
 #------------------------------------------------------------------------------#
 
@@ -50,11 +50,11 @@ SET(HOME_DIR ${CMAKE_CURRENT_SOURCE_DIR} CACHE INTERNAL "")
 SET(CMAKE_MODULE_PATH ${HOME_DIR}/CMake)
 SET(Boost_NO_SYSTEM_PATHS "ON")
 
-#FIND_PACKAGE(Boost COMPONENTS filesystem program_options timer chrono REQUIRED)
+FIND_PACKAGE(Boost COMPONENTS filesystem program_options timer chrono REQUIRED)
 SET(EXTERNAL_INCLUDES ${Boost_INCLUDE_DIRS})
 SET(EXTERNAL_LIBRARIES ${Boost_LIBRARIES})
 
-#FIND_PACKAGE(Eigen3 3.3.4)
+FIND_PACKAGE(Eigen3 3.3.4)
 SET(EXTERNAL_INCLUDES ${EXTERNAL_INCLUDES} ${EIGEN_INCLUDEDIR})
 
 FIND_PACKAGE(SuperLU)
